@@ -1,1 +1,6 @@
-# python-data-structures-and-algorithms
+# Table of Contents
+
+## Challenges
+* ![Array Reverse]()
+* ![Array Shift]()
+* ![Array Binary Search]()
