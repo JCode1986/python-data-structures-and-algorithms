@@ -1,6 +1,6 @@
 # Table of Contents
 
 ## Challenges
-* ![Array Reverse]()
-* ![Array Shift]()
-* ![Array Binary Search]()
+* [Array Reverse]()
+* [Array Shift]()
+* [Array Binary Search]()
