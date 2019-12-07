@@ -1,37 +1,49 @@
+class Node:
+  def __init__(self, value):
+    self.value = value
+    self.next = None
+
 class Linked_list:
-  def __init__(self, head = None):
-    self.head = head
+    def __init__(self):
+        self.head = None
 
-class Node(Linked_list):
-    def __init__(self, value, next = None):
-        self.value = value
-        self.next = next
-
-#insert new node to be head
     def insert(self, value):
-        new_node = Node(value)
-        new_node.next(self.head)
-        self.head = new_node
+        """insert new node to be head"""
+        new_node = Node(value) 
+        new_node.next = self.head 
+        self.head = new_node 
 
-#returns a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
     def includes(self, value):
+        """
+        Given a value as a parameter, return a boolean result depending on whether that value exists as a Node’s value somewhere within the list.
+        """
         current = self.head
         while current:
             if value == current.value:
                 return True
-            else:
-                current = current.next
-            return False
+            current = current.next
+        return False
 
-#returns a string representing all the values in the Linked List.
     def to_string(self):
+        """returns a string representing all the values in the Linked List."""
+        values = " "
         current = self.head
         while current:
-            print(current.value)
-        current = current.next
+            values += " " + str(current.value)
+            current = current.next
+        return values
+
+if __name__ == "__main__":
+    lst = Linked_list()
+    print(type(lst))
+    # lst.insert(1)
+    # lst.insert(2)
+    # lst.insert(3)
+    # lst.insert(4)
+    # print(lst.includes('a'))
+    # print(lst.includes(1))
+    # print(lst.to_string())
 
 
-node = Node(1)
-print(node)
 
 
