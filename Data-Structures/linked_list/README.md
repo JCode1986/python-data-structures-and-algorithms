@@ -8,7 +8,9 @@
 * Define a method called toString (or __str__ in Python) which takes in no arguments and returns a string representing all the values in the Linked List.
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+* `insert` method - O(1); always to the head
+* `includes` method - O(n); possibly traverses through entire linked list
+* `to_string` method - O(n); traverses through entire linked list
 
 ## API
 * `Class Node` with value and next attributes
