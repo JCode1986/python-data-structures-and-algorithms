@@ -6,4 +6,4 @@
 * [Array Binary Search](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/challenges/array_binary_search)
 
 ## Data Structures
-* [Linked lists]()
+* [Linked lists](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/Data-Structures/linked_list)
