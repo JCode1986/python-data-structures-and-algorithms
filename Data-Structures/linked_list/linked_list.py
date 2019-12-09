@@ -4,14 +4,14 @@ class Node:
     self.next = None
 
 class Linked_list:
-    def __init__(self):
-        self.head = None
+    def __init__(self, head = None):
+        self.head = head
 
     def insert(self, value):
         """insert new node to be head"""
         new_node = Node(value) 
         new_node.next = self.head 
-        self.head = new_node 
+        self.head = new_node
 
     def includes(self, value):
         """
@@ -36,13 +36,13 @@ class Linked_list:
 if __name__ == "__main__":
     lst = Linked_list()
     print(type(lst))
-    # lst.insert(1)
-    # lst.insert(2)
-    # lst.insert(3)
-    # lst.insert(4)
-    # print(lst.includes('a'))
-    # print(lst.includes(1))
-    # print(lst.to_string())
+    lst.insert(1)
+    lst.insert(2)
+    lst.insert(3)
+    lst.insert(4)
+    print(lst.includes('a'))
+    print(lst.includes(1))
+    print(lst.to_string())
 
 
 

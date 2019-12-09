@@ -1,17 +1,18 @@
 from linked_list import Linked_list, Node
 import pytest
 
+linked_list = Linked_list()
+
 def test_one():
     """Can successfully instantiate an empty linked list"""
-    expected = {None}
-    actual = Linked_list()
-    assert actual == expected
+    assert linked_list
 
-def test_two(value):
+def test_two():
     """Can properly insert into the linked list"""
     expected = 2
-    Linked_list.insert(1)
-    actual = Linked_list.insert(2)
+    linked_list.insert(1)
+    linked_list.insert(2)
+    actual = linked_list.head.value
     assert actual == expected
 
 # def test_three(value):
