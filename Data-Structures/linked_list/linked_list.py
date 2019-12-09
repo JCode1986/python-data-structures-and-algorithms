@@ -33,6 +33,22 @@ class Linked_list:
             current = current.next
         return values
 
+    def append(self, value):
+        node = Node(value)
+        current = self.head
+        while current:
+            if current.next == None:
+                current.next = node
+                node.next = None
+            current = current.next
+
+    def insert_before(self, value, new_value):
+        pass
+
+    def insert_after(self, value, new_value):
+        pass
+
+
 if __name__ == "__main__":
     lst = Linked_list()
     print(type(lst))
@@ -40,6 +56,7 @@ if __name__ == "__main__":
     lst.insert(2)
     lst.insert(3)
     lst.insert(4)
+    lst.append(69)
     print(lst.includes('a'))
     print(lst.includes(1))
     print(lst.to_string())
