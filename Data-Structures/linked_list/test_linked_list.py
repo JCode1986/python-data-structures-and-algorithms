@@ -57,4 +57,3 @@ def test_nine():
     actual = linked_list.tail.value
     expected = 420
     assert actual == expected
-
