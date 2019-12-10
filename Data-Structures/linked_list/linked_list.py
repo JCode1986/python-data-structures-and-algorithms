@@ -55,7 +55,6 @@ class Linked_list:
             temp = current                 
             current = current.next
 
-
     def insert_after(self, value, new_value):
         node = Node(new_value)
         current = self.head
@@ -67,6 +66,23 @@ class Linked_list:
                 node.next = temp
             current = current.next
 
+    def kth_from_end(self, k): 
+        length =  0
+        current = self.head
+
+        while current.next:
+            current = current.next
+            length += 1
+        count = length - k
+        current = self.head
+        if k > count:
+            return 'Exception'
+        while count > 0:
+            current = current.next
+            count -= 1
+        return current.value
+
+
 if __name__ == "__main__":
     lst = Linked_list()
     print(type(lst))
@@ -77,6 +93,7 @@ if __name__ == "__main__":
     lst.append(69)
     lst.insert_after(2, 420)
     lst.insert_before(4, 30)
+    lst.kth_from_end(3)
     print(lst.includes('a'))
     print(lst.includes(1))
     print(lst.to_string())

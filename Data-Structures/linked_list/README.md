@@ -11,13 +11,18 @@
 * `insert` method - O(1); always to the head
 * `includes` method - O(n); possibly traverses through entire linked list
 * `to_string` method - O(n); traverses through entire linked list
+* `append(value)` medthod - O(1) always at end of list
+* `insertBefore(value, newVal)` - O(n)
+* `insertAfter(value, newVal)` - O(n)
+* `kth_from_end(k)` - O(2n)
 
 ## API
 * `Class Node` with value and next attributes
 * `Class_linked` list with head
-    * `insert` method - takes in a value as an argument, and inserts that that value into the head of the linked list
-    * `includes` method - takes in a value as an argument, and returns a boolean if the value is present or not in the linked list
+    * `insert(value)` method - takes in a value as an argument, and inserts that that value into the head of the linked list
+    * `includes(value)` method - takes in a value as an argument, and returns a boolean if the value is present or not in the linked list
     * `to_string` method - returns all the values in the linked list
     * `append(value)` which adds a new node with the given value to the end of the list
     * `insertBefore(value, newVal)` which add a new node with the given newValue immediately before the first value node
     * `insertAfter(value, newVal)` which add a new node with the given newValue immediately after the first value node
+    * `kth_from_end(k)` - takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list.
