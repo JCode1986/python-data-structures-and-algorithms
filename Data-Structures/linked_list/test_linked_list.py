@@ -50,3 +50,11 @@ def test_two():
 #     expected = -1
 #     actual = binary_search(array_one, 12)
 #     assert actual == expected
+
+def test_nine():
+    """Can properly append to tail of linked list"""
+    linked_list.append(420)
+    actual = linked_list.tail.value
+    expected = 420
+    assert actual == expected
+

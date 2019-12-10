@@ -4,8 +4,9 @@ class Node:
     self.next = None
 
 class Linked_list:
-    def __init__(self, head = None):
+    def __init__(self, head = None, tail = None):
         self.head = head
+        self.tail = tail
 
     def insert(self, value):
         """insert new node to be head"""
@@ -40,14 +41,31 @@ class Linked_list:
             if current.next == None:
                 current.next = node
                 node.next = None
+                self.tail = node
             current = current.next
 
     def insert_before(self, value, new_value):
-        pass
+        node = Node(new_value)
+        current = self.head
+        temp = self.head
+        while current:
+            if current.value == value:
+                temp.next = node
+                node.next = current   
+            temp = current                 
+            current = current.next
+
 
     def insert_after(self, value, new_value):
-        pass
-
+        node = Node(new_value)
+        current = self.head
+        temp = self.head
+        while current:
+            if current.value == value: 
+                temp = current.next
+                current.next = node
+                node.next = temp
+            current = current.next
 
 if __name__ == "__main__":
     lst = Linked_list()
@@ -57,6 +75,8 @@ if __name__ == "__main__":
     lst.insert(3)
     lst.insert(4)
     lst.append(69)
+    lst.insert_after(2, 420)
+    lst.insert_before(4, 30)
     print(lst.includes('a'))
     print(lst.includes(1))
     print(lst.to_string())
