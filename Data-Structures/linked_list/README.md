@@ -18,3 +18,6 @@
     * `insert` method - takes in a value as an argument, and inserts that that value into the head of the linked list
     * `includes` method - takes in a value as an argument, and returns a boolean if the value is present or not in the linked list
     * `to_string` method - returns all the values in the linked list
+    * `append(value)` which adds a new node with the given value to the end of the list
+    * `insertBefore(value, newVal)` which add a new node with the given newValue immediately before the first value node
+    * `insertAfter(value, newVal)` which add a new node with the given newValue immediately after the first value node
