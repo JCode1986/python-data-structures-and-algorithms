@@ -83,20 +83,54 @@ class Linked_list:
         print(current.value)
         return current.value
 
+    def merge_lists(self, list1, list2): 
+        list1_current = list1.head
+        list2_current = list2.head
+  
+        while list1_current and list2_current: 
+  
+            # Save next pointers 
+            list1_next_ref = list1_current.next
+            list2_next_ref = list2_current.next
+  
+            # make list2_current as next of list1_current 
+            list1_current.next = list2_current # change next pointer of list2_current 
+            list2_current.next = list1_next_ref # change next pointer of list1_current 
+  
+            # update current pointers for next iteration 
+            list1_current = list1_next_ref 
+            list2_current = list2_next_ref 
+                
+
 if __name__ == "__main__":
     lst = Linked_list()
+    lst1 = Linked_list()
     lst2 = Linked_list()
-    lst.insert(1)
-    lst.insert(2)
-    lst.insert(3)
-    lst.insert(4)
-    lst.append(69)
-    lst.insert_after(2, 420)
-    lst.insert_before(69, 30)
-    lst.kth_from_end(3)
-    print(lst.includes('a'))
-    print(lst.includes(1))
-    print(lst.to_string())
+    lst3 = Linked_list()
+    lst1.insert(1)
+    lst1.append(3)
+    lst1.append(5)
+    lst1.append(7)
+    lst1.append(9)
+    lst2.insert(2)
+    lst2.append(4)
+    lst2.append(6)
+    lst2.append(8)
+    lst2.append(10)
+    lst3.insert(420)
+    lst3.append(69)
+    # print(lst1.to_string())
+    print(lst3.to_string())
+    print(lst2.to_string())
+    lst.merge_lists(lst1, lst2)
+    # print(lst3.to_string())
+    print(lst1.to_string())
+    # print(lst.to_string())
+    # lst.insert_after(2, 420)
+    # lst.insert_before(69, 30)
+    # lst.kth_from_end(3)
+    # print(lst.includes('a'))
+    # print(lst.includes(1))
 
 
 
