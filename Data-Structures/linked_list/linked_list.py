@@ -30,7 +30,7 @@ class Linked_list:
         values = " "
         current = self.head
         while current:
-            values += " " + str(current.value)
+            values += f'{[(current.value)]}-->'
             current = current.next
         return values
 
@@ -80,19 +80,19 @@ class Linked_list:
         while count > 0:
             current = current.next
             count -= 1
+        print(current.value)
         return current.value
-
 
 if __name__ == "__main__":
     lst = Linked_list()
-    print(type(lst))
+    lst2 = Linked_list()
     lst.insert(1)
     lst.insert(2)
     lst.insert(3)
     lst.insert(4)
     lst.append(69)
     lst.insert_after(2, 420)
-    lst.insert_before(4, 30)
+    lst.insert_before(69, 30)
     lst.kth_from_end(3)
     print(lst.includes('a'))
     print(lst.includes(1))
