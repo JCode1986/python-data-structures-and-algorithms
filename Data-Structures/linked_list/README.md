@@ -15,7 +15,7 @@
 * `insertBefore(value, newVal)` - O(n)
 * `insertAfter(value, newVal)` - O(n)
 * `kth_from_end(k)` - O(2n)
-
+* `merge_lists(list1, list2)` - O(n)
 ## API
 * `Class Node` with value and next attributes
 * `Class_linked` list with head
@@ -26,3 +26,4 @@
     * `insertBefore(value, newVal)` which add a new node with the given newValue immediately before the first value node
     * `insertAfter(value, newVal)` which add a new node with the given newValue immediately after the first value node
     * `kth_from_end(k)` - takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list.
+    * `merge_lists(list1, list2)` - takes in two linked lists, zip the two linked list into one linked list
