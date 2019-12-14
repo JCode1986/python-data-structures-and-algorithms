@@ -107,6 +107,18 @@ class Linked_list:
             b_curr = b_ref
 
         return a_curr 
+
+    def is_palindrome(self, lst):
+        current = lst.head       
+        values = [] 
+        while current: 
+            values.append(current.value) 
+            current = current.next
+        string = "".join(values)
+        return string == string[::-1]
+
+    def reverse(self, lst):
+        pass
                 
 
 if __name__ == "__main__":
@@ -115,10 +127,10 @@ if __name__ == "__main__":
     lst2 = Linked_list()
     lst3 = Linked_list()
     lst1.insert(1)
+    lst1.append(2)
     lst1.append(3)
-    lst1.append(5)
-    lst1.append(7)
-    lst1.append(9)
+    lst1.append(2)
+    lst1.append(1)
     lst2.insert(2)
     lst2.append(4)
     lst2.append(6)
@@ -127,11 +139,11 @@ if __name__ == "__main__":
     lst3.insert(420)
     lst3.append(69)
     # print(lst1.to_string())
-    print(lst3.to_string())
-    print(lst1.to_string())
-    lst.merge_lists(lst1, lst2)
+    # print(lst1.to_string())
+    # lst.merge_lists(lst1, lst2)
     # print(lst3.to_string())
-    print(lst1.to_string())
+    print(lst2.to_string())
+    print(lst.is_palindrome(lst2))
     # print(lst.to_string())
     # lst.insert_after(2, 420)
     # lst.insert_before(69, 30)
