@@ -17,6 +17,8 @@ class Stack(Node):
 
     def pop(self):
         """removes the node from the top of the stack, and returns the node’s value"""
+        if self.top is None:
+            return 'Stack is empty'
         temp = self.top
         self.top = self.top.next
         temp.next = None
@@ -33,7 +35,7 @@ class Stack(Node):
         while current:
             values += f'{[(current.value)]}-->'
             current = current.next
-        return f'Stack size: {self.stack_size()} ||| Values:{values}'
+        return f'Stack size: {self.stack_size()} with Values:{values}None'
 
     def stack_size(self):
         return self.size
@@ -63,6 +65,8 @@ class Queue(Node):
 
     def dequeue(self):
         """removes the node from the front of the queue, and returns the node’s value"""
+        if self.front is None:
+            return 'Queue is empty'
         temp = self.front
         self.front = self.front.next
         temp.next = None
@@ -73,13 +77,13 @@ class Queue(Node):
         """returns the value of the node located in the front of the queue, without removing it from the queue"""
         return self.front.value
 
-    def get_values(self):
+    def queue_info(self):
         values = " "
         current = self.front
         while current:
-            values += f'{[(current.value)]}-->'
+            values += f'<--{[(current.value)]}'
             current = current.next
-        return f'Stack size: {self.queue_size()} with Values:{values}'
+        return f'Queue size: {self.queue_size()} with Values: None{values}'
     
     def queue_size(self):
         return self.size
@@ -90,11 +94,11 @@ class Queue(Node):
   
 if __name__ == "__main__":
     stack = Stack()
-    stack.push(1)
-    stack.push(2)
-    stack.push(3)
-    stack.push(4)
-    stack.push('hello world')
+    stack.push('k')
+    stack.push('c')
+    stack.push('a')
+    stack.push('t')
+    stack.push('S')
     stack.push('bar')
     stack.push('foo')
     print(stack.stack_size())
@@ -106,13 +110,14 @@ if __name__ == "__main__":
 
     queue = Queue()
     queue.enqueue(1)
-    queue.enqueue(2)
-    queue.enqueue(3)
-    queue.enqueue(4)
-    queue.enqueue(5)
+    queue.enqueue('Q')
+    queue.enqueue('u')
+    queue.enqueue('e')
+    queue.enqueue('u')
+    queue.enqueue('e')
     queue.dequeue()
     print(queue.peek())
     print(queue.is_empty())
     print(queue.queue_size())
-    print(queue.get_values())
+    print(queue.queue_info())
 
