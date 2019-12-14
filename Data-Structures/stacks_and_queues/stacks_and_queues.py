@@ -20,14 +20,23 @@ class Stack(Node):
         temp = self.top
         self.top = self.top.next
         temp.next = None
+        self.size -= 1
         return temp.value
 
     def peek(self):
         """returns the value of the node located on top of the stack, without removing it from the stack"""
         return self.top.value
 
+    def stack_info(self):
+        values = " "
+        current = self.top
+        while current:
+            values += f'{[(current.value)]}-->'
+            current = current.next
+        return f'Stack size: {self.stack_size()} ||| Values:{values}'
+
     def stack_size(self):
-        return f'Stack Size: {self.size}'
+        return self.size
 
     def is_empty(self):
         """returns a boolean indicating whether or not the stack is empty"""
@@ -47,52 +56,63 @@ class Queue(Node):
             return
 
         current = self.front
-        while current:
-            if current.next:
-                current = current.next
-            self.size += 1
+        while current.next:
+            current = current.next
+        self.size += 1
         current.next = node
 
     def dequeue(self):
         """removes the node from the front of the queue, and returns the node’s value"""
         temp = self.front
         self.front = self.front.next
-        temp.next = null
+        temp.next = None
+        self.size -= 1
         return temp.value
 
     def peek(self):
         """returns the value of the node located in the front of the queue, without removing it from the queue"""
-        return self.front
+        return self.front.value
+
+    def get_values(self):
+        values = " "
+        current = self.front
+        while current:
+            values += f'{[(current.value)]}-->'
+            current = current.next
+        return f'Stack size: {self.queue_size()} with Values:{values}'
     
     def queue_size(self):
-        return f'Queue Size: {self.size}'
+        return self.size
 
     def is_empty(self):
         """returns a boolean indicating whether or not the queue is empty"""
         return self.front is None
   
 if __name__ == "__main__":
-    # stack = Stack()
-    # stack.push(1)
-    # stack.push(2)
-    # stack.push(3)
-    # stack.push(4)
-    # stack.push('hello world')
-    # stack.push('bar')
-    # stack.push('foo')
-    # print(stack.stack_size())
-    # print(stack.pop())
-    # print(stack.pop())
-    # print(stack.peek())
-    # print(stack.is_empty())
+    stack = Stack()
+    stack.push(1)
+    stack.push(2)
+    stack.push(3)
+    stack.push(4)
+    stack.push('hello world')
+    stack.push('bar')
+    stack.push('foo')
+    print(stack.stack_size())
+    print(stack.pop())
+    print(stack.pop())
+    print(stack.peek())
+    print(stack.is_empty())
+    print(stack.stack_info())
 
     queue = Queue()
-    print(queue.enqueue(1))
-    # queue.enqueue(2)
-    # queue.enqueue(3)
-    # queue.enqueue(34)
-    # queue.dequeue()
-    print(queue)
-    # print(queue.is_empty())
-    # print(queue.queue_size())
+    queue.enqueue(1)
+    queue.enqueue(2)
+    queue.enqueue(3)
+    queue.enqueue(4)
+    queue.enqueue(5)
+    queue.dequeue()
+    print(queue.peek())
+    print(queue.is_empty())
+    print(queue.queue_size())
+    print(queue.get_values())
 
