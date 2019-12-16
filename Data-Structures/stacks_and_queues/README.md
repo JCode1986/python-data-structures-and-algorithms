@@ -36,4 +36,4 @@
     * `dequeue()` - removes first node that was enqueued
     * `peek()` - return value of front of queue
     * `is_empty()` - returns boolean if queue is empty
-    
+
