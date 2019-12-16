@@ -10,9 +10,7 @@ class Stack(Node):
 
     def push(self, value):
         """takes any value as an argument and adds a new node with that value to the top of the stack"""
-        node = Node(value)
-        node.next = self.top
-        self.top = node
+        self.top = Node(value, self.top)
         self.size += 1
 
     def pop(self):
@@ -102,7 +100,7 @@ class Queue(Node):
         if not self.front:
             return True
         else:   
-            return self.front is None
+            return False
   
 if __name__ == "__main__":
     stack = Stack()
