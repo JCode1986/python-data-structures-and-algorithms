@@ -27,7 +27,10 @@ class Stack(Node):
 
     def peek(self):
         """returns the value of the node located on top of the stack, without removing it from the stack"""
-        return self.top.value
+        if not self.top:
+            return 'There is nothing in Stack'
+        else:
+            return self.top.value
 
     def stack_info(self):
         values = " "
@@ -42,7 +45,10 @@ class Stack(Node):
 
     def is_empty(self):
         """returns a boolean indicating whether or not the stack is empty"""
-        return self.top is None
+        if not self.top:
+            return True
+        else:
+            return False
     
 class Queue(Node):
     def __init__(self): 
@@ -65,7 +71,7 @@ class Queue(Node):
 
     def dequeue(self):
         """removes the node from the front of the queue, and returns the node’s value"""
-        if self.front is None:
+        if not self.front:
             return 'Queue is empty'
         temp = self.front
         self.front = self.front.next
@@ -75,7 +81,10 @@ class Queue(Node):
 
     def peek(self):
         """returns the value of the node located in the front of the queue, without removing it from the queue"""
-        return self.front.value
+        if not self.front:
+            return 'Queue is empty'
+        else:
+            return self.front.value
 
     def queue_info(self):
         values = " "
@@ -90,7 +99,10 @@ class Queue(Node):
 
     def is_empty(self):
         """returns a boolean indicating whether or not the queue is empty"""
-        return self.front is None
+        if not self.front:
+            return True
+        else:   
+            return self.front is None
   
 if __name__ == "__main__":
     stack = Stack()
@@ -101,7 +113,6 @@ if __name__ == "__main__":
     stack.push('S')
     stack.push('bar')
     stack.push('foo')
-    print(stack.stack_size())
     print(stack.pop())
     print(stack.pop())
     print(stack.peek())
