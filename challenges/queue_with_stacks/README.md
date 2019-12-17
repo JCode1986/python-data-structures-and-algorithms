@@ -8,7 +8,8 @@ Create a brand new `PseudoQueue` class. Do not use an existing Queue. Instead, t
 The Stack instances have only `push`, `pop`, and `peek` methods. You should use your own Stack implementation. Instantiate these Stack objects in your `PseudoQueue` constructor.
 
 ## Approach & Efficiency
-
+O(1) - for `enqueue` - utilized `push` method from `Stack`
+O(n) - for `dequeue` - utilzied `push` & `pop` methods from `Stack` and `enqueue` from `PseudoQueue`
 
 ## Solution
-![enter name here](./image/array-shift.jpeg)
+![PseudoQueue](./image/code11.jpg)

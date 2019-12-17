@@ -20,9 +20,10 @@ class PseudoQueue:
 
 if __name__ == "__main__":
     q = PseudoQueue()
-    q.enqueue('a')
-    q.enqueue(2)
+    q.enqueue('I am first and on top of stack, pop me!')
+    q.enqueue(1)
     q.enqueue(2)
     q.enqueue(3)
-    print(q.enqueue(4))
+    q.enqueue(4)
     print(q.dequeue())
+    print(q.stack.stack_info())
