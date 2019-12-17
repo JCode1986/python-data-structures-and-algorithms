@@ -30,7 +30,7 @@ class Linked_list:
         values = " "
         current = self.head
         while current:
-            values += " " + str(current.value)
+            values += f'{[(current.value)]}-->'
             current = current.next
         return values
 
@@ -55,7 +55,6 @@ class Linked_list:
             temp = current                 
             current = current.next
 
-
     def insert_after(self, value, new_value):
         node = Node(new_value)
         current = self.head
@@ -67,19 +66,65 @@ class Linked_list:
                 node.next = temp
             current = current.next
 
+    def kth_from_end(self, k): 
+        length =  0
+        current = self.head
+
+        while current.next:
+            current = current.next
+            length += 1
+        count = length - k
+        current = self.head
+        if k > count:
+            return 'Exception'
+        while count > 0:
+            current = current.next
+            count -= 1
+        print(current.value)
+        return current.value
+
+    def is_palindrome(self, lst):
+        current = lst.head       
+        values = [] 
+        while current: 
+            values.append(current.value) 
+            current = current.next
+        string = "".join(values)
+        return string == string[::-1]
+
+    def reverse(self, lst):
+        pass
+                
+
 if __name__ == "__main__":
     lst = Linked_list()
-    print(type(lst))
-    lst.insert(1)
-    lst.insert(2)
-    lst.insert(3)
-    lst.insert(4)
-    lst.append(69)
-    lst.insert_after(2, 420)
-    lst.insert_before(4, 30)
-    print(lst.includes('a'))
-    print(lst.includes(1))
-    print(lst.to_string())
+    lst1 = Linked_list()
+    lst2 = Linked_list()
+    lst3 = Linked_list()
+    lst1.insert(1)
+    lst1.append(2)
+    lst1.append(3)
+    lst1.append(2)
+    lst1.append(1)
+    lst2.insert(2)
+    lst2.append(4)
+    lst2.append(6)
+    lst2.append(8)
+    lst2.append(10)
+    lst3.insert(420)
+    lst3.append(69)
+    # print(lst1.to_string())
+    # print(lst1.to_string())
+    # lst.merge_lists(lst1, lst2)
+    # print(lst3.to_string())
+    print(lst2.to_string())
+    print(lst.is_palindrome(lst2))
+    # print(lst.to_string())
+    # lst.insert_after(2, 420)
+    # lst.insert_before(69, 30)
+    # lst.kth_from_end(3)
+    # print(lst.includes('a'))
+    # print(lst.includes(1))
 
 
 
