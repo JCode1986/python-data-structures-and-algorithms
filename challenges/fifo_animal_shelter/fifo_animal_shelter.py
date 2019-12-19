@@ -8,9 +8,9 @@ class AnimalShelter:
 
     def fifo_enqueue(self, animal):
         """Method that takes in an animal as an argument, and adds animal if cat or dog, to it's respective queues."""
-        if animal == 'cat': 
+        if animal.get('type') == 'cat': 
             self.cat.enqueue(animal)
-        if animal == 'dog':
+        if animal.get('type') == 'dog':
             self.dog.enqueue(animal)
 
     def fifo_dequeue(self, preference):
@@ -24,11 +24,11 @@ class AnimalShelter:
 
 if __name__ == "__main__":
     shelter = AnimalShelter()
-    shelter.fifo_enqueue({'cat': 'Garfield'})
-    shelter.fifo_enqueue({'dog': 'Pluto'})
-    # shelter.fifo_enqueue({'dog': 'Pluto'})
-    # shelter.fifo_enqueue({'dog': 'Pluto'})
-    # shelter.fifo_enqueue('dog')
-    # print(shelter.fifo_dequeue('cat'))
+    shelter.fifo_enqueue({'type': 'cat', 'name': 'Garfield'})
+    shelter.fifo_enqueue({'type': 'dog', 'name': 'Pluto'})
+    shelter.fifo_enqueue({'type': 'cat', 'name': 'Fluffy'})
+    shelter.fifo_enqueue({'type': 'dog', 'name': 'Jax'})
+    print(shelter.fifo_dequeue('dog'))
+    print(shelter.fifo_dequeue('cat'))
     print(shelter.dog.queue_info())
     print(shelter.cat.queue_info())
