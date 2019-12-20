@@ -1,58 +1,90 @@
 from tree import Node, BinaryTree, BinarySearchTree
 import pytest
 
-tree = BinaryTree()
+@pytest.fixture
+def bst():
+    return BinarySearchTree()
 
-def instantiate_empty_tree():
+@pytest.fixture
+def tree():
+    return BinaryTree()
+
+def test_instantiate_empty_tree(tree):
     """Can successfully instantiate an empty tree"""
-    assert tree._root is None
+    assert tree.root is None
 
-def instantiate_tree_with_single_root_node():
+def test_instantiate_tree_with_single_root_node(bst):
     """Can successfully instantiate a tree with a single root node"""
-    tree.add('I am the root')
-    assert tree._root.value == 'I am the root'
+    bst.add('I am the root')
+    assert bst.root.value == 'I am the root'
 
-def add_left_and_right_to_root():
+def test_add_left_and_right_to_root(bst):
     """Can successfully add a left child and right child to a single root node"""
-    tree.add(100)
-    tree.add(50)
-    tree.add(150)
+    bst.add(100)
+    bst.add(50)
+    bst.add(150)
 
-    assert tree._root.value == 100
-    assert tree._root.left.value == 50
-    assert tree._root.right.value == 150
+    assert bst.root.value == 100
+    assert bst.root.left.value == 50
+    assert bst.root.right.value == 150
 
-def pre_order_traversal():
+def test_pre_order_traversal(bst):
     """Can successfully return a collection from a preorder traversal"""
-    tree.add(100)
-    tree.add(50)
-    tree.add(150)
+    bst.add(100)
+    bst.add(50)
+    bst.add(150)
 
     expected = [100,50,150]
-    actual = tree.pre_order()
+    actual = bst.pre_order()
 
     assert expected == actual
 
-def inorder_traversal():
+def test_inorder_traversal(bst):
     """Can successfully return a collection from an inorder traversal"""
-    tree.add(100)
-    tree.add(50)
-    tree.add(150)
+    bst.add(100)
+    bst.add(50)
+    bst.add(150)
 
     expected = [50,100, 150]
-    actual = tree.in_order()
+    actual = bst.in_order()
 
     assert expected == actual
 
 
-def postorder_traversal():
-    """Can successfully return a collection from a postorder traversal"""
-    tree.add(100)
-    tree.add(50)
-    tree.add(150)
+def test_post_order_traversal(bst):
+    """Can successfully return a collection from a post order traversal"""
+    bst.add(100)
+    bst.add(50)
+    bst.add(150)
 
     expected = [50,150, 100]
-    actual = tree.post_order()
+    actual = bst.post_order()
 
     assert expected == actual
 
+def test_contains_method_true_root(bst):
+    bst.add(100)
+    bst.add(50)
+    bst.add(150)
+    
+    expected = True
+    actual = bst.contains(100)
+    assert expected == actual
+
+def test_contains_method_false(bst):
+    bst.add(100)
+    bst.add(50)
+    bst.add(150)
+    
+    expected = False
+    actual = bst.contains(99)
+    assert expected == actual
+
+def test_contains_method_true_children(bst):
+    bst.add(100)
+    bst.add(50)
+    bst.add(150)
+    
+    expected = True
+    actual = bst.contains(150)
+    assert expected == actual

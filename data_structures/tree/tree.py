@@ -1,5 +1,5 @@
 class Node:
-    def __init__(self, value):
+    def __init__(self, value = None):
         self.value = value
         self.left = None
         self.right = None
@@ -8,68 +8,68 @@ class BinaryTree:
     def __init__(self):
         self.root = None
 
-    def pre_order(self, node):
-        current = self.root
-        result = []
+    def pre_order(self, node = None, result = []):
 
-        if current:
-            result.append(current.value)
+        node = node or self.root        
 
-            if current.left:
-                self.pre_order(current.left)
+        result.append(node.value)
 
-            if current.right:
-                self.pre_order(current.right)
+        if node.left:
+            self.pre_order(node.left, result)
+
+        if node.right:
+            self.pre_order(node.right, result)
 
         return result
     
-    def post_order(self, node):
-        current = self.root
-        result = []
+    def in_order(self, node = None, result = []):
 
-        if current:
-            if current.left:
-                result.append(current.value)
-                self.pre_order(current.left)
+        node = node or self.root
 
-            if current.right:
-                self.pre_order(current.right)
+        if node.left:
+            self.pre_order(node.left, result)
+        result.append(node.value)
+
+        if node.right:
+            self.pre_order(node.right, result)
 
         return result        
 
-    def in_order(self, node):
-        current = self.root
-        result = []
-        
-        if current:
-            
-            if current.left:
-                self.pre_order(current.left)
-            result.append(current.value)
+    def post_order(self, node = None, result = []):
 
-            if current.right:
-                self.pre_order(current.right)
+        node = node or self.root
+
+        if node.left:
+            self.pre_order(node.left, result)
+
+
+        if node.right:
+            self.pre_order(node.right, result)
+        result.append(node.value)
+
         return result    
 
 class BinarySearchTree(BinaryTree):
     
     def add(self, value):
         node = Node(value)
-        current = self.root
 
-        if not current:
-            current = node
+        if not self.root:
+            self.root = node
             return
+
+        current = self.root
         
-        if node.value > current.value:
+        while current:
+            if value > current.value:
 
-            if not current.right:
-                current.right = node
-        else:
+                if not current.right:
+                    current.right = node
+            else:
 
-            if not current.left:
-                current.left = node
-
+                if not current.left:
+                    current.left = node
+            return
 
     def contains(self, value):
         current = self.root
@@ -89,4 +89,8 @@ class BinarySearchTree(BinaryTree):
 
 if __name__ == "__main__":
     tree = BinaryTree()
-    bst = BinarySearchTree()   
+    bst = BinarySearchTree()
+    bst.add(10)
+    bst.add(5)
+    bst.add(1)
+    tree.pre_order()
