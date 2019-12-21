@@ -10,4 +10,4 @@
 
 
 ## Solution
-![FIFO Animal Shelter](./assets/array_binary_search.jpg)
+![FIFO Animal Shelter](./image/fifo.jpg)
