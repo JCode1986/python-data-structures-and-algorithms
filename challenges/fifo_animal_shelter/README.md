@@ -10,4 +10,5 @@
 
 
 ## Solution
-![FIFO Animal Shelter]()
+![FIFO Animal Shelter](./image/fifo.jpg)
+

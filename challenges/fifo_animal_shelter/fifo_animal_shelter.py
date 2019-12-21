@@ -20,7 +20,7 @@ class AnimalShelter:
         if preference == 'dog':
             return self.dog.dequeue()
         else:
-            return null
+            return None
 
 if __name__ == "__main__":
     shelter = AnimalShelter()

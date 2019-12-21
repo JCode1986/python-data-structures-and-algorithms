@@ -29,3 +29,10 @@ def test_dequeue_dog_from_dog_q(shelter):
     actual = shelter.fifo_dequeue('dog')
     expected = {'type': 'dog', 'name': 'Toto'}
     assert expected == actual
+
+def test_dequeue_return_null_pref(shelter):
+    shelter.fifo_enqueue({'type': 'dog', 'name': 'Toto'})
+    shelter.fifo_enqueue({'type': 'cat', 'name': 'Felix'})
+    actual = shelter.fifo_dequeue('snake')
+    expected = None
+    assert expected == actual
