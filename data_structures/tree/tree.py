@@ -9,7 +9,6 @@ class BinaryTree:
         self.root = None
 
     def pre_order(self, node = None, result = []):
-
         node = node or self.root        
 
         result.append(node.value)
