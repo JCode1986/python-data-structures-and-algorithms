@@ -91,5 +91,5 @@ if __name__ == "__main__":
     bst = BinarySearchTree()
     bst.add(10)
     bst.add(5)
-    bst.add(1)
-    tree.pre_order()
+    bst.add(15)
+    print(bst.in_order())
