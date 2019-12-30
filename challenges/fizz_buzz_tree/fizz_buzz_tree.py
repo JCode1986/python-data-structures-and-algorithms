@@ -17,21 +17,18 @@ def fizz_buzz_tree(tree):
         else:
             return str(value)
         
-    def helper(current):
-        # node = Node(fizz_buzz(current.value))
-        current = current or tree.root
-        node = Node(fizz_buzz(current.value))
+    def helper(current, new_current = None):
+        new_current.value = fizz_buzz(current.value)
 
-        print(node)
         if current.left:
-            node.left = helper(current.left)
+            new_current.left = Node()
+            helper(current.left, new_current.left)
 
         if current.right:
-            node.right = helper(current.right)
+            new_current.right = Node()
+            helper(current.right, new_current.right)
 
-        return node
-
-    new_tree.root = helper(tree.root)
+    helper(tree.root, new_tree.root)
     return new_tree
 
 if __name__ == "__main__":
@@ -39,7 +36,7 @@ if __name__ == "__main__":
     bst = BinarySearchTree()
     bst.add(5)
     bst.add(10)
-    bst.add(15)
+ 
 
-    # print(fizz_buzz_tree(bst.pre_order()))
-    print(bst.root.left.value)
+    print(fizz_buzz_tree(bst.pre_order()))
+    print(bst.root.value)
