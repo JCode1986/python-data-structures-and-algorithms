@@ -88,3 +88,44 @@ def test_contains_method_true_children(bst):
     expected = True
     actual = bst.contains(150)
     assert expected == actual
+
+def test_breadth_root_none(bst):
+    expected = 'No root'
+    actual = bst.breadth_first()
+    assert actual == expected
+
+def test_breadth_return_root_value(bst):
+    bst.add(100)
+
+    expected = [100]
+    actual = bst.breadth_first()
+    assert expected == actual
+
+def test_breadth_return_root_value_with_child(bst):
+    bst.add(100)
+    bst.add(50)
+
+    expected = [100, 50]
+    actual = bst.breadth_first()
+    assert expected == actual
+
+def test_breadth_return_root_value_with_children(bst, tree):
+    tree.breadth_add('apples')
+    tree.breadth_add('bananas')
+    tree.breadth_add('cucumbers')
+    tree.breadth_add('dates')
+
+    expected = ['apples', 'bananas', 'cucumbers', 'dates']
+    actual = tree.breadth_first()
+    assert expected == actual
+
+def test_add_four_nodes(tree):
+    tree.breadth_add('apples')
+    tree.breadth_add('bananas')
+    tree.breadth_add('cucumbers')
+    tree.breadth_add('dates')
+    assert tree.root.value == 'apples'
+    assert tree.root.left.value == 'bananas'
+    assert tree.root.right.value == 'cucumbers'
+    assert tree.root.left.left.value == 'dates'
+    assert tree.root.left.right == None
