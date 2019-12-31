@@ -1,3 +1,5 @@
+from stacks_and_queues import Queue
+
 class Node:
     def __init__(self, value = None):
         self.value = value
@@ -46,7 +48,28 @@ class BinaryTree:
             self.pre_order(node.right, result)
         result.append(node.value)
 
-        return result    
+        return result  
+
+    def breadth_first(self):
+        if not self.root:
+            return 'Not today'
+
+        result = []
+        q = Queue()
+        q.enqueue(self.root)
+        
+        while len(q):
+            current = q.dequeue()
+            result.append(current.value)
+
+            if current.left:
+                q.enqueue(current.left)
+
+            if current.right:
+                q.enqueue(current.right)  
+
+        return result          
+
 
 class BinarySearchTree(BinaryTree):
     
