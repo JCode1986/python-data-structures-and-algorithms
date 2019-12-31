@@ -83,7 +83,7 @@ class BinaryTree:
 
     def breadth_first(self):
         """Method that returns all values of tree in level order"""
-        
+
         if not self.root:
             return 'No root'
 
@@ -100,6 +100,53 @@ class BinaryTree:
 
             if current.right:
                 q.append(current.right)
+
+        return result
+
+    def find_maximum_value_recursive(self):
+        """Method that recursively traverses through tree, and returns maximum numeric value"""
+        result = 0
+
+        if not self.root:
+            return 0
+
+        def _walk(node):
+
+            nonlocal result
+
+            if node.value > result:
+                result = node.value
+            
+            if node.left:
+                _walk(node.left)
+
+            if node.right:
+                _walk(node.right)
+
+        _walk(self.root)
+        return result   
+
+    def find_maximum_value_iterative(self):
+        """Method that iteratively traverses through tree, and returns maximum numeric value"""
+        result = 0        
+
+        if not self.root:
+            return result
+
+        nodes_q = []
+        nodes_q.append(self.root)
+
+        while nodes_q:
+            current = nodes_q.pop(0)
+            
+            if current.value > result:
+                result = current.value
+
+            if current.left:
+                nodes_q.append(current.left)
+            
+            if current.right:
+                nodes_q.append(current.right)
 
         return result
       

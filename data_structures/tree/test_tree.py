@@ -114,8 +114,12 @@ def test_breadth_return_root_value_with_children(bst, tree):
     tree.breadth_add('bananas')
     tree.breadth_add('cucumbers')
     tree.breadth_add('dates')
+    tree.breadth_add(1)
+    tree.breadth_add(2)
+    tree.breadth_add(3)
+    tree.breadth_add(4)
 
-    expected = ['apples', 'bananas', 'cucumbers', 'dates']
+    expected = ['apples', 'bananas', 'cucumbers', 'dates', 1, 2, 3, 4]
     actual = tree.breadth_first()
     assert expected == actual
 
@@ -129,3 +133,33 @@ def test_add_four_nodes(tree):
     assert tree.root.right.value == 'cucumbers'
     assert tree.root.left.left.value == 'dates'
     assert tree.root.left.right == None
+
+def test_find_maximum_no_root_iterative(tree):
+    expected = 0
+    actual = tree.find_maximum_value_iterative()
+    assert actual == expected   
+
+def test_find_maximum_num_iterative(tree):
+    tree.breadth_add(23)
+    tree.breadth_add(19)
+    tree.breadth_add(24)
+    tree.breadth_add(30)
+    tree.breadth_add(16)
+    expected = 30
+    actual = tree.find_maximum_value_iterative()
+    assert expected == actual
+
+def test_find_maximum_no_root_recursive(tree):
+    expected = 0
+    actual = tree.find_maximum_value_recursive()
+    assert actual == expected 
+
+def test_find_maximum_num_recursive(tree):
+    tree.breadth_add(23)
+    tree.breadth_add(19)
+    tree.breadth_add(24)
+    tree.breadth_add(300)
+    tree.breadth_add(16000)
+    expected = 16000
+    actual = tree.find_maximum_value_recursive()
+    assert expected == actual
