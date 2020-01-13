@@ -4,10 +4,10 @@ def insertion_sort(lst):
   In - takes in a list of integers
   Out - returns a list of sorted integers  
   """
-  
+
   for i in range(1, len(lst)):
     j = i - 1
-    temp = lst[i]
+    temp = int((lst[i]))
 
     while j >= 0 and temp < lst[j]:
       lst[j + 1] = lst[j]
