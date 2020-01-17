@@ -1,4 +1,5 @@
 class HashMap:
+
     def __init__(self, size):
         self.size = size
         self.bucket = [None] * self.size
@@ -48,12 +49,13 @@ class HashMap:
                 if pair[0] == key:
                     return pair[1]
 
-        return 'Key you are looking for in not the in table.'
+        return None
 
     def print(self):
         if self.bucket is not None:
             for item in self.bucket:
                 print(str(item))
+
 
 if __name__ == "__main__":
     h = HashMap(20)
