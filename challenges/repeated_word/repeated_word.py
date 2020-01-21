@@ -1,3 +1,5 @@
+import re
+
 def first_repeated_word(string):
     """
     Function that returns that first repeated word in a string
@@ -5,10 +7,11 @@ def first_repeated_word(string):
     out: String
     """
 
-    word_split = string.lower().split(' ')
+    words_with_no_punct = re.findall(r'[A-Za-z]+\'?[a-z]*', string.lower())
+    print(words_with_no_punct)
     word_list = []
 
-    for word in word_split:
+    for word in words_with_no_punct:
         if word in word_list:
             return word
         word_list.append(word)
@@ -46,3 +49,6 @@ def most_repeated_word(string):
         j += 1
     
     return most_repeated_key
+
+if __name__ == "__main__":
+    print(first_repeated_word('hi.... hi,, hi!!!!'))
