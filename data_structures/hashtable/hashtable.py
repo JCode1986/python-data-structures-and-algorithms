@@ -2,17 +2,17 @@ class HashMap:
 
     def __init__(self, size):
         self.size = size
-        self.bucket = [None] * self.size
+        self.map = [None] * self.size
         self.index = -1
 
     def __str__(self):
         """
-        Method from HashMap that prints indices, keys, and values in bucket
+        Method from HashMap that prints indices, keys, and values in map
         In: None
         Out: string
         """ 
-        if self.bucket is not None:
-            for item in self.bucket:
+        if self.map is not None:
+            for item in self.map:
                 self.index += 1
                 print(f'{self.index}: {str(item)}')
 
@@ -33,23 +33,23 @@ class HashMap:
         """
         Method from HashMap that takes in a key and value
         In: string and integer
-        Out: adds key and value to an index in the bucket
+        Out: adds key and value to an index in the map
         """        
         hash_key = self.hash(key)
-        key_value = key, value
+        key_value = [key, value]
 
-        if self.bucket[hash_key] is None:
-            self.bucket[hash_key] = list([key_value])
+        if self.map[hash_key] is None:
+            self.map[hash_key] = list([key_value])
             return True
 
         else:
 
-            for pair in self.bucket[hash_key]:
+            for pair in self.map[hash_key]:
                 if pair[0] == key:
                     pair[1] = value
                     return True
 
-            self.bucket[hash_key].append(key_value)
+            self.map[hash_key].append(key_value)
             return True
 
     def contains(self, key):
@@ -60,8 +60,8 @@ class HashMap:
         """        
         hash_key = self.hash(key)
 
-        if self.bucket[hash_key] is not None:
-            for pair in self.bucket[hash_key]:
+        if self.map[hash_key] is not None:
+            for pair in self.map[hash_key]:
                 if pair[0] == key:
                     return True
 
@@ -71,12 +71,12 @@ class HashMap:
         """
         Method from HashMap that takes in a key
         In: string
-        Out: string - returns value from bucket or None if does not exist
+        Out: string - returns value from map or None if does not exist
         """
         hash_key = self.hash(key)
 
-        if self.bucket[hash_key] is not None:
-            for pair in self.bucket[hash_key]:
+        if self.map[hash_key] is not None:
+            for pair in self.map[hash_key]:
                 if pair[0] == key:
                     return pair[1]
 
@@ -93,4 +93,4 @@ if __name__ == "__main__":
     print(h.get('wadido'))
     print(h.contains('fire'))
     print(h.contains('foo'))
-    print(h.__str__())
+    h.__str__()
