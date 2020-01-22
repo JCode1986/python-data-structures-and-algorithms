@@ -1,4 +1,3 @@
-
 def tree_intersection(tree_one, tree_two):
     """
     Function that takes in two binary trees, and returns a list of all common values in both trees
