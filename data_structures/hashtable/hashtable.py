@@ -83,14 +83,34 @@ class HashMap:
         return None
 
 
+def left_join(h1, h2):
+
+    for bucket in h1.map:
+
+      if bucket:
+
+        for pair in bucket:
+            
+            if h2.contains(pair[0]):
+                pair.append(h2.get(pair[0]))
+
+            if not h2.contains(pair[0]):
+                pair.append('None')
+
+    return h1.map
+
+
 if __name__ == "__main__":
-    h = HashMap(10)
-    h.add('foo', 420)
-    h.add('bar', 69)
-    h.add('foobar', 1986)
-    h.add('hello world', 33)
-    print(h.get('foo'))
-    print(h.get('wadido'))
-    print(h.contains('fire'))
-    print(h.contains('foo'))
-    h.__str__()
+    h1 = HashMap(10)
+    h1.add('fond', 'enamored')
+    h1.add('wrath', 'anger')
+    h1.add('diligent', 'employed')
+    h1.add('outift', 'garb')
+    h1.add('guide', 'usher')
+    h2 = HashMap(10)
+    h2.add('fond', 'averse')
+    h2.add('wrath', 'delight')
+    h2.add('diligent', 'idle')
+    h2.add('guide', 'follow')
+    h2.add('flow', 'jam')   
+    print(left_join(h1, h2))
