@@ -22,6 +22,7 @@ def hashmap_two():
     return h2
 
 def test_returns_values_if_both_keys_are_present():
+    """Successfull returns appended value to bucket if both keys are present"""
     h1 = HashMap(1)
     h2 = HashMap(1)
     h1.add('wrath', 'anger')
@@ -31,6 +32,7 @@ def test_returns_values_if_both_keys_are_present():
     assert actual == expected
 
 def test_returns_None_in_bucket_if_key_is_not_preset():
+    """Successfull returns appended None to bucket if both keys are not present"""
     h1 = HashMap(1)
     h2 = HashMap(1)
     h1.add('wrath', 'anger')

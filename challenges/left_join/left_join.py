@@ -84,7 +84,11 @@ class HashMap:
 
 
 def left_join(h1, h2):
-
+    """
+    Functions that takes in two hashmaps, and return one hashmap with appended value if both hashmaps have both keys present
+    In: Two instances of a hashmap
+    Out: Hashmap with with appended value
+    """
     for bucket in h1.map:
 
       if bucket:
