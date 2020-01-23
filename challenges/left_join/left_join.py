@@ -95,7 +95,7 @@ def left_join(h1, h2):
                 pair.append(h2.get(pair[0]))
 
             if not h2.contains(pair[0]):
-                pair.append('None')
+                pair.append(None)
 
     return h1.map
 
