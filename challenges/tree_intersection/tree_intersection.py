@@ -15,7 +15,6 @@ def tree_intersection(tree_one, tree_two):
     result = []
     
     def walk_one(node):
-        nonlocal seen
 
         if node is None:
             return
@@ -28,9 +27,7 @@ def tree_intersection(tree_one, tree_two):
     walk_one(tree_one.root)
 
     def walk_two(node):
-        nonlocal seen
-        nonlocal result
-
+ 
         if node is None:
             return
 

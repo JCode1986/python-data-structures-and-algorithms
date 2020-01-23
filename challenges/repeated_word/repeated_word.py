@@ -37,18 +37,19 @@ def most_repeated_word(string):
         
         else:
             dictionary[word_list[i]] = 1
-        i += 1
+            
+        i +=1
 
-    j = 0
+
     for key in dictionary:
         current_val = dictionary.get(key)
         if current_val:
             if current_val > most_repeated_value:
                 most_repeated_value = current_val
                 most_repeated_key = key
-        j += 1
     
     return most_repeated_key
 
 if __name__ == "__main__":
     print(first_repeated_word('hi.... hi,, hi!!!!'))
+    print(most_repeated_word('In a galaxy far far away'))
