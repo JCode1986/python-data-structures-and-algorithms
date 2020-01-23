@@ -101,13 +101,13 @@ def left_join(h1, h2):
 
 
 if __name__ == "__main__":
-    h1 = HashMap(10)
+    h1 = HashMap(5)
     h1.add('fond', 'enamored')
     h1.add('wrath', 'anger')
     h1.add('diligent', 'employed')
     h1.add('outift', 'garb')
     h1.add('guide', 'usher')
-    h2 = HashMap(10)
+    h2 = HashMap(5)
     h2.add('fond', 'averse')
     h2.add('wrath', 'delight')
     h2.add('diligent', 'idle')
