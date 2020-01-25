@@ -83,23 +83,6 @@ class HashMap:
         return None
 
 
-def left_join(h1, h2):
-
-    for bucket in h1.map:
-
-      if bucket:
-
-        for pair in bucket:
-            
-            if h2.contains(pair[0]):
-                pair.append(h2.get(pair[0]))
-
-            if not h2.contains(pair[0]):
-                pair.append('None')
-
-    return h1.map
-
-
 if __name__ == "__main__":
     h1 = HashMap(10)
     h1.add('fond', 'enamored')
@@ -113,4 +96,3 @@ if __name__ == "__main__":
     h2.add('diligent', 'idle')
     h2.add('guide', 'follow')
     h2.add('flow', 'jam')   
-    print(left_join(h1, h2))

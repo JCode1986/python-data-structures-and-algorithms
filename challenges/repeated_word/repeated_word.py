@@ -30,17 +30,13 @@ def most_repeated_word(string):
     most_repeated_value = 0
     most_repeated_key = ''
 
-    i = 0
-    for word in word_list:
-        if word_list[i] in dictionary:
-            dictionary[word_list[i]] += 1
+    for word in range(len(word_list)):
+        if word_list[word] in dictionary:
+            dictionary[word_list[word]] += 1
         
         else:
-            dictionary[word_list[i]] = 1
+            dictionary[word_list[word]] = 1
             
-        i +=1
-
-
     for key in dictionary:
         current_val = dictionary.get(key)
         if current_val:
