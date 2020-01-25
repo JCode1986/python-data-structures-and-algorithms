@@ -26,6 +26,6 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 * `class Graph`
     * `add_node(value)`: O(1)
     * `add_edge(start, end, weight)`: O(1)
-    * `get_nodes()`: O(1)
-    * `get_neigbors(node)`: O(1)
-    * `size(key)`: O(1)
+    * `get_nodes()`: O(n)
+    * `get_neigbors(node)`: O(n)
+    * `size(key)`: O(n)
