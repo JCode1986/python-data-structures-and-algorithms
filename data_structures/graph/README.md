@@ -24,10 +24,8 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 
 ## Approach & Efficiency
 * `class Graph`
-    * `add_node(value)`: 
-    * `add_edge(start, end, weight)`: 
-    * `get_nodes()`: 
-    * `get_neigbors(node)`: 
-    * `size(key)`:
-
-
+    * `add_node(value)`: O(1)
+    * `add_edge(start, end, weight)`: O(1)
+    * `get_nodes()`: O(1)
+    * `get_neigbors(node)`: O(1)
+    * `size(key)`: O(1)
