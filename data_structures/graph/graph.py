@@ -62,6 +62,23 @@ class Graph:
         return len(self._adjacency_list)
 
 
+    def breadth_first(self, vertex):
+        nodes = []
+        queue = []
+        queue.append(vertex)
+
+        while queue:
+            front = queue.pop(0)
+            nodes.append(front)
+
+            for child in self.get_neighbors(front):
+                if child not in nodes:
+                    child = True
+                    queue.pop(0)
+
+        return nodes
+
+
 class Vertex:
 
     def __init__(self, value):
@@ -76,11 +93,12 @@ if __name__ == "__main__":
     print(g._adjacency_list)
     g.add_edge('spam', 'rice', 2)
     g.add_edge('start', 'end', 2)
+    g.add_edge('spam', 'end', 420)
     print(g.size())
     print(g.get_nodes())
     print(g._adjacency_list)
-    print(g.get_neighbors('spam'))
-
+    print(g.get_neighbors('rice'))
+    # print(g.breadth_first(start))
 
 
 
