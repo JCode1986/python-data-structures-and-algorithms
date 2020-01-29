@@ -72,9 +72,12 @@ class Graph:
             nodes.append(front)
 
             for child in self.get_neighbors(front):
-                if child not in nodes:
-                    child = True
+                if not child.visited:
+                    child.visited = True
                     queue.pop(0)
+
+        for node in self._adjacency_list:
+            node.visited = False
 
         return nodes
 
@@ -83,10 +86,12 @@ class Vertex:
 
     def __init__(self, value):
         self.value = value
+        self.visited = False
+        self.next = None
 
 if __name__ == "__main__":
     g = Graph()
-    g.add_node('rice')
+    root = g.add_node('rice')
     g.add_node('spam')
     end = g.add_node('end')
     start = g.add_node('start')
@@ -97,8 +102,8 @@ if __name__ == "__main__":
     print(g.size())
     print(g.get_nodes())
     print(g._adjacency_list)
-    print(g.get_neighbors('rice'))
-    # print(g.breadth_first(start))
+    print(g.get_neighbors('start'))
+    print(g.breadth_first(root))
 
 
 
