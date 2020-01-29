@@ -1,3 +1,18 @@
+from collections import deque
+
+class Queue:
+    def __init__(self):
+        self.dq = deque()
+
+    def enqueue(self, value):
+        self.dq.appendleft(value)
+
+    def dequeue(self):
+        return self.dq.pop()
+
+    def empty(self):
+        return len(self.dq) == 0
+
 class Graph:
 
     def __init__(self):
@@ -12,7 +27,7 @@ class Graph:
         """
 
         vertex = Vertex(value)
-        self._adjacency_list[value] = []
+        self._adjacency_list[vertex] = []
         return vertex
 
     def add_edge(self, start_vertex, end_vertex, weight = 0):
@@ -22,15 +37,14 @@ class Graph:
             In: instance, instance, integer
             Out: tuple with end vertex as key, and weight as value added graph if both vertex's are present
         """
-
-        if start_vertex not in self._adjacency_list: 
+        if start_vertex not in self._adjacency_list.keys(): 
             raise KeyError('Start Vertex not in Graph')
         
-        if end_vertex not in self._adjacency_list:
+        if end_vertex not in self._adjacency_list.keys():
             raise KeyError('End Vertex not in Graph')
 
         adjacencies = self._adjacency_list[start_vertex]
-        adjacencies.append((end_vertex,weight))
+        adjacencies.append((end_vertex, weight))
 
     def get_nodes(self):
         """
@@ -64,22 +78,40 @@ class Graph:
 
     def breadth_first(self, vertex):
         nodes = []
-        queue = []
-        queue.append(vertex)
+        queue = Queue()
 
-        while queue:
-            front = queue.pop(0)
+        if vertex not in self._adjacency_list:
+            raise ValueError
+
+        queue.enqueue(vertex)
+
+        while not queue.empty():
+            front = queue.dequeue()
             nodes.append(front)
 
             for child in self.get_neighbors(front):
                 if not child.visited:
                     child.visited = True
-                    queue.pop(0)
+                    queue.enqueue(child)
 
         for node in self._adjacency_list:
             node.visited = False
 
         return nodes
+
+    def get_edges(self, start, end):
+        pass
+
+    # def depth_traversal(self, graph, node):
+    #     visited = []
+    #     def _walk(graph, node):
+    #         if node not in visited:
+    #             visited.append(node)
+    #             for neighbour in graph[node]:
+    #                 _walk(graph, neighbour)
+
+    #     _walk(graph, node)
+    #     return visited
 
 
 class Vertex:
@@ -89,21 +121,27 @@ class Vertex:
         self.visited = False
         self.next = None
 
+    def __repr__(self):
+        return self.value
+
+
 if __name__ == "__main__":
     g = Graph()
-    root = g.add_node('rice')
-    g.add_node('spam')
+    rice = g.add_node('rice')
+    spam = g.add_node('spam')
     end = g.add_node('end')
     start = g.add_node('start')
     print(g._adjacency_list)
-    g.add_edge('spam', 'rice', 2)
-    g.add_edge('start', 'end', 2)
-    g.add_edge('spam', 'end', 420)
+    print(g.get_nodes())
+    g.add_edge(start, end, 2)
+    g.add_edge(start, rice, 23)
+    g.add_edge(spam, rice, 420)
     print(g.size())
     print(g.get_nodes())
     print(g._adjacency_list)
-    print(g.get_neighbors('start'))
-    print(g.breadth_first(root))
+    print(g.get_neighbors(start))
+    print(g.breadth_first(start))
+    # print(g.depth_traversal(g._adjacency_list, start))
 
 
 
