@@ -77,6 +77,12 @@ class Graph:
 
 
     def breadth_first(self, vertex):
+        """
+        Graph method that traverses the graph and returns vertices in level order
+            Args: 1
+            In: vertex
+            Out: list 
+        """
         nodes = []
         queue = Queue()
 
@@ -89,8 +95,8 @@ class Graph:
             front = queue.dequeue()
             nodes.append(front)
 
-            for child in self.get_neighbors(front):
-                if not child.visited:
+            for child, _ in self.get_neighbors(front):
+                if child not in nodes:
                     child.visited = True
                     queue.enqueue(child)
 
@@ -102,16 +108,34 @@ class Graph:
     def get_edges(self, start, end):
         pass
 
-    # def depth_traversal(self, graph, node):
-    #     visited = []
-    #     def _walk(graph, node):
-    #         if node not in visited:
-    #             visited.append(node)
-    #             for neighbour in graph[node]:
-    #                 _walk(graph, neighbour)
+    def depth_first(self, vertex):
+        """
+        Graph method that traverses the graph and returns vertices in depth order
+            Args: 1
+            In: vertex
+            Out: list 
+        """
+        nodes = []
+        stack = []
 
-    #     _walk(graph, node)
-    #     return visited
+        if vertex not in self._adjacency_list:
+            raise ValueError
+
+        stack.append(vertex)
+
+        while stack:
+            top = stack.pop()
+            nodes.append(top)
+
+            for child, _ in self.get_neighbors(top):
+                if child not in nodes:
+                    child.visited = True
+                    stack.append(child)
+
+        for node in self._adjacency_list:
+            node.visited = False
+
+        return nodes
 
 
 class Vertex:
@@ -131,17 +155,21 @@ if __name__ == "__main__":
     spam = g.add_node('spam')
     end = g.add_node('end')
     start = g.add_node('start')
+    veggies = g.add_node('veggies')
     print(g._adjacency_list)
     print(g.get_nodes())
     g.add_edge(start, end, 2)
     g.add_edge(start, rice, 23)
     g.add_edge(spam, rice, 420)
+    g.add_edge(end, veggies, 1986)
+    g.add_edge(veggies, spam, 1986)
     print(g.size())
     print(g.get_nodes())
     print(g._adjacency_list)
     print(g.get_neighbors(start))
     print(g.breadth_first(start))
-    # print(g.depth_traversal(g._adjacency_list, start))
+    print(g.depth_first(start))
+
 
 
 
