@@ -22,6 +22,12 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
 * size()
     * Returns the total number of nodes in the graph
 
+* breadth_first()
+    * Return a collection of nodes in the order (level-order) they were visited.
+
+* depth_first()
+    * Return a collection of nodes in the order (depth-order) they were visited.
+
 ## Approach & Efficiency
 * `class Graph`
     * `add_node(value)`: O(1)
@@ -29,3 +35,5 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
     * `get_nodes()`: O(1)
     * `get_neigbors(node)`: O(1)
     * `size(key)`: O(1)
+    * `breadth_first()`: O(n2)
+    * `depth_first()`: O(n2)
