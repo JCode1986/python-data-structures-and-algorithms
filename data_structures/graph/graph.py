@@ -1,3 +1,18 @@
+from collections import deque
+
+class Queue:
+    def __init__(self):
+        self.dq = deque()
+
+    def enqueue(self, value):
+        self.dq.appendleft(value)
+
+    def dequeue(self):
+        return self.dq.pop()
+
+    def empty(self):
+        return len(self.dq) == 0
+
 class Graph:
 
     def __init__(self):
@@ -12,7 +27,7 @@ class Graph:
         """
 
         vertex = Vertex(value)
-        self._adjacency_list[value] = []
+        self._adjacency_list[vertex] = []
         return vertex
 
     def add_edge(self, start_vertex, end_vertex, weight = 0):
@@ -22,15 +37,14 @@ class Graph:
             In: instance, instance, integer
             Out: tuple with end vertex as key, and weight as value added graph if both vertex's are present
         """
-
-        if start_vertex not in self._adjacency_list: 
+        if start_vertex not in self._adjacency_list.keys(): 
             raise KeyError('Start Vertex not in Graph')
         
-        if end_vertex not in self._adjacency_list:
+        if end_vertex not in self._adjacency_list.keys():
             raise KeyError('End Vertex not in Graph')
 
         adjacencies = self._adjacency_list[start_vertex]
-        adjacencies.append((end_vertex,weight))
+        adjacencies.append((end_vertex, weight))
 
     def get_nodes(self):
         """
@@ -63,18 +77,63 @@ class Graph:
 
 
     def breadth_first(self, vertex):
+        """
+        Graph method that traverses the graph and returns vertices in level order
+            Args: 1
+            In: vertex
+            Out: list 
+        """
         nodes = []
-        queue = []
-        queue.append(vertex)
+        queue = Queue()
 
-        while queue:
-            front = queue.pop(0)
+        if vertex not in self._adjacency_list:
+            raise ValueError
+
+        queue.enqueue(vertex)
+
+        while not queue.empty():
+            front = queue.dequeue()
             nodes.append(front)
 
-            for child in self.get_neighbors(front):
+            for child, _ in self.get_neighbors(front):
                 if child not in nodes:
-                    child = True
-                    queue.pop(0)
+                    child.visited = True
+                    queue.enqueue(child)
+
+        for node in self._adjacency_list:
+            node.visited = False
+
+        return nodes
+
+    def get_edges(self, start, end):
+        pass
+
+    def depth_first(self, vertex):
+        """
+        Graph method that traverses the graph and returns vertices in depth order
+            Args: 1
+            In: vertex
+            Out: list 
+        """
+        nodes = []
+        stack = []
+
+        if vertex not in self._adjacency_list:
+            raise ValueError
+
+        stack.append(vertex)
+
+        while stack:
+            top = stack.pop()
+            nodes.append(top)
+
+            for child, _ in self.get_neighbors(top):
+                if child not in nodes:
+                    child.visited = True
+                    stack.append(child)
+
+        for node in self._adjacency_list:
+            node.visited = False
 
         return nodes
 
@@ -83,22 +142,34 @@ class Vertex:
 
     def __init__(self, value):
         self.value = value
+        self.visited = False
+        self.next = None
+
+    def __repr__(self):
+        return self.value
+
 
 if __name__ == "__main__":
     g = Graph()
-    g.add_node('rice')
-    g.add_node('spam')
+    rice = g.add_node('rice')
+    spam = g.add_node('spam')
     end = g.add_node('end')
     start = g.add_node('start')
+    veggies = g.add_node('veggies')
     print(g._adjacency_list)
-    g.add_edge('spam', 'rice', 2)
-    g.add_edge('start', 'end', 2)
-    g.add_edge('spam', 'end', 420)
+    print(g.get_nodes())
+    g.add_edge(start, end, 2)
+    g.add_edge(start, rice, 23)
+    g.add_edge(spam, rice, 420)
+    g.add_edge(end, veggies, 1986)
+    g.add_edge(veggies, spam, 1986)
     print(g.size())
     print(g.get_nodes())
     print(g._adjacency_list)
-    print(g.get_neighbors('rice'))
-    # print(g.breadth_first(start))
+    print(g.get_neighbors(start))
+    print(g.breadth_first(start))
+    print(g.depth_first(start))
+
 
 
 
