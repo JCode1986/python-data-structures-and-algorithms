@@ -11,6 +11,8 @@
 
 
 ## Data Structures
-* [Linked lists]()
+* [Linked lists](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/data_structures/linked_list)
 * [Trees](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/data_structures/tree)
-* [Graphs]()
+* [Graphs](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/data_structures/graph)
+* [Hashtable](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/data_structures)
+* [Stack and Queues](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/data_structures/stacks_and_queues)
