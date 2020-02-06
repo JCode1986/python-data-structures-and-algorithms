@@ -79,3 +79,9 @@ def test_depth_functionality(graph):
     expected = [start, rice, end, veggies, spam]
     actual = graph.depth_first(start)
     assert expected == actual
+
+def test_test_edge_error_value(graph):
+    with pytest.raises(ValueError):
+        graph.depth_first('hello there i should be an error') 
+
+   

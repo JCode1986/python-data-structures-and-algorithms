@@ -105,9 +105,6 @@ class Graph:
 
         return nodes
 
-    def get_edges(self, start, end):
-        pass
-
     def depth_first(self, vertex):
         """
         Graph method that traverses the graph and returns vertices in depth order
@@ -137,6 +134,30 @@ class Graph:
 
         return nodes
 
+    def get_edges(self, v_lst):
+
+        def contains_vertex(value, lst):
+            for vertex in lst:
+                if isinstance(vertex, tuple):
+                    if vertex[0].value == value:
+                        return vertex
+                    continue
+                if vertex.value == value:
+                    return vertex
+            return False, 0
+
+        current = contains_vertex(v_lst[0], self._adjacency_list.keys())
+        if isinstance(current, Vertex):
+            edge_weight = 0
+            for index in range(1, len(v_lst)):
+                current, cost = contains_vertex(v_lst[index], self.get_neighbors(current))
+                edge_weight += cost
+                if not current:
+                    return (False, '$0')
+            return (True, f'${edge_weight}')
+        return (False, '$0')
+
+
 
 class Vertex:
 
@@ -158,19 +179,15 @@ if __name__ == "__main__":
     veggies = g.add_node('veggies')
     print(g._adjacency_list)
     print(g.get_nodes())
-    g.add_edge(start, end, 2)
-    g.add_edge(start, rice, 23)
-    g.add_edge(spam, rice, 420)
-    g.add_edge(end, veggies, 1986)
-    g.add_edge(veggies, spam, 1986)
+    g.add_edge(start, end, '$2')
+    g.add_edge(start, rice, '$23')
+    g.add_edge(spam, rice, '$420')
+    g.add_edge(end, veggies, '$1986')
+    g.add_edge(veggies, spam, '$1986')
     print(g.size())
     print(g.get_nodes())
     print(g._adjacency_list)
     print(g.get_neighbors(start))
     print(g.breadth_first(start))
     print(g.depth_first(start))
-
-
-
-
-
+    print(g.get_edges(g._adjacency_list))
