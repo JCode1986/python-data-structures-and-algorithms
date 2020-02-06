@@ -12,5 +12,5 @@
 
 ## Data Structures
 * [Linked lists]()
-* [Trees]()
+* [Trees](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/data_structures/tree)
 * [Graphs]()
