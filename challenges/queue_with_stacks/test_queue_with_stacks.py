@@ -1,4 +1,4 @@
-from queue_with_stacks import PseudoQueue
+from .queue_with_stacks import PseudoQueue
 import pytest
 
 q = PseudoQueue()
