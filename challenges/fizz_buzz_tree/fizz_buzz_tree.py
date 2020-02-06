@@ -1,5 +1,5 @@
 # from data_structures.tree.tree import BinaryTree, Node
-from tree import BinaryTree, Node, BinarySearchTree
+from fb_tree import BinaryTree, Node, BinarySearchTree
 
 def fizz_buzz_tree(tree):
     new_tree = BinaryTree()
@@ -36,7 +36,6 @@ if __name__ == "__main__":
     bst = BinarySearchTree()
     bst.add(5)
     bst.add(10)
- 
 
     print(fizz_buzz_tree(bst.pre_order()))
     print(bst.root.value)

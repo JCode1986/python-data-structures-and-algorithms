@@ -1,4 +1,4 @@
-from tree import Node, BinaryTree, BinarySearchTree
+from trees import Node, BinaryTree, BinarySearchTree
 import pytest
 
 @pytest.fixture
@@ -8,6 +8,9 @@ def bst():
 @pytest.fixture
 def tree():
     return BinaryTree()
+
+def test_tree_instantiation(tree):
+    assert tree
 
 def test_instantiate_empty_tree(tree):
     """Can successfully instantiate an empty tree"""

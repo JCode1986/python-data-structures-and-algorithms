@@ -1,4 +1,4 @@
-from stacks_and_queues import Queue, Node
+from stacks_and_queues import Queue
 
 class Node:
     def __init__(self, value = None):
@@ -149,7 +149,7 @@ class BinaryTree:
                 nodes_q.append(current.right)
 
         return result
-      
+        
 class BinarySearchTree(BinaryTree):
     
     def add(self, value):
@@ -189,9 +189,4 @@ class BinarySearchTree(BinaryTree):
         return False
 
 if __name__ == "__main__":
-    tree = BinaryTree()
-    bst = BinarySearchTree()
-    bst.add(100)
-    bst.add(55)
-    bst.add(150)
-    tree.pre_order()
+    pass
