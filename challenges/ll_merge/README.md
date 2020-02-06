@@ -13,5 +13,3 @@ Write a function called `merge_lists` which takes two linked lists as arguments.
 
 O(n)
 
-## Solution
-![enter name here](./image/array-shift.jpeg)
