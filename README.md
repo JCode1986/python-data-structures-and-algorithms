@@ -12,3 +12,5 @@
 
 ## Data Structures
 * [Linked lists]()
+* [Trees]()
+* [Graphs]()
