@@ -18,3 +18,8 @@
 * [Graphs](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/data_structures/graph)
 * [Hashtable](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/data_structures)
 * [Stack and Queues](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/data_structures/stacks_and_queues)
+
+## Sorts
+* [Insertion](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/sorts/insertion_sort)
+* [Merge](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/sorts/merge_sort)
+* [Quick](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/sorts/quick_sort)
