@@ -23,3 +23,6 @@
 * [Insertion](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/sorts/insertion_sort)
 * [Merge](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/sorts/merge_sort)
 * [Quick](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/sorts/quick_sort)
+
+## Tests
+* In CLI, type `pytest <test-module.py>`
