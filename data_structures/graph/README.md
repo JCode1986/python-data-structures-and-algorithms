@@ -36,4 +36,4 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
     * `get_neigbors(node)`: O(1)
     * `size(key)`: O(1)
     * `breadth_first()`: O(n2)
-    * `depth_first()`: O(n2)
+
