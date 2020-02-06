@@ -8,7 +8,9 @@
 * [FizzBuzz Tree](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/challenges/fizz_buzz_tree)
 * [Linked List Merge](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/challenges/ll_merge)
 * [Queues with Stacks](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/challenges/queue_with_stacks)
-
+* [Left Join](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/challenges/left_join)
+* [Repeated Word](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/challenges/repeated_word)
+* [Tree Intersection](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/challenges/tree_intersection)
 
 ## Data Structures
 * [Linked lists](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/data_structures/linked_list)
