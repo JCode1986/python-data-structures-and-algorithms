@@ -13,6 +13,9 @@ Implement your own Graph. The graph should be represented as an adjacency list, 
     * Include the ability to have a “weight”
     * Takes in the two nodes to be connected by the edge
     * Both nodes should already be in the Graph
+* get_edge()
+    * Takes in a graph, and an array of city names 
+    * returns whether the full trip is possible with direct flights, and how much it would cost.
 * get_nodes()
     * Returns all of the nodes in the graph as a collection (set, list, or similar)
 * get_neigbors()
