@@ -1,4 +1,4 @@
-# Insert Shift Array
+# Merge linked lists
 Merge two linked lists.
 
 ## Challenge Description
