@@ -190,4 +190,4 @@ if __name__ == "__main__":
     print(g.get_neighbors(start))
     print(g.breadth_first(start))
     print(g.depth_first(start))
-    print(g.get_edges(g._adjacency_list))
+    # print(g.get_edges(g._adjacency_list))
