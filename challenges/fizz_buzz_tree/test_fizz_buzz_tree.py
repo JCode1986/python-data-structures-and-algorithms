@@ -20,5 +20,3 @@ def test_if_root_is_none(tree):
 #     actual = bst.root.value
 #     expected = 0
 #     assert actual == expected
-
-    
