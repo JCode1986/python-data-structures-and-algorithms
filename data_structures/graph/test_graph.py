@@ -84,4 +84,3 @@ def test_test_edge_error_value(graph):
     with pytest.raises(ValueError):
         graph.depth_first('hello there i should be an error') 
 
-   

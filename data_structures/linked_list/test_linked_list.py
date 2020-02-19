@@ -1,13 +1,16 @@
 import pytest
 from linked_list import Linked_list, Node
 
-linked_list = Linked_list()
+@pytest.fixture
+def linked_list():
+    return Linked_list()
 
-def test_one():
+
+def test_one(linked_list):
     """Can successfully instantiate an empty linked list"""
     assert linked_list
 
-def test_two():
+def test_two(linked_list):
     """Can properly insert into the linked list"""
     expected = 2
     linked_list.insert(1)
@@ -15,19 +18,16 @@ def test_two():
     actual = linked_list.head.value
     assert actual == expected
 
-# def test_three(value):
-#     """The head property will properly point to the first node in the linked list"""
-#     expected = -1
-#     actual = binary_search(array_one, 12)
-#     assert actual == expected
+def test_three(linked_list):
+    """Can properly insert multiple nodes into the linked list"""
+    linked_list.insert(1)
+    linked_list.insert(2)
+    linked_list.insert(3)
+    expected = [3, 2, 1]
+    actual = [linked_list.head.value, linked_list.head.next.value, linked_list.head.next.next.value]
+    assert actual == expected
 
-# def test_four():
-#     """Can properly insert multiple nodes into the linked list"""
-#     expected = -1
-#     actual = binary_search(array_one, 12)
-#     assert actual == expected
-
-# def test_five():
+# def test_five(linked_list):
 #     """Will return true when finding a value within the linked list that exists"""
 #     expected = -1
 #     actual = binary_search(array_one, 12)
@@ -51,9 +51,9 @@ def test_two():
 #     actual = binary_search(array_one, 12)
 #     assert actual == expected
 
-def test_nine():
-    """Can properly append to tail of linked list"""
-    linked_list.append(420)
-    actual = linked_list.tail.value
-    expected = 420
-    assert actual == expected
+# def test_nine(linked_list):
+#     """Can properly append to tail of linked list"""
+#     linked_list.append(420)
+#     actual = linked_list.tail.value
+#     expected = 420
+#     assert actual == expected
