@@ -25,4 +25,5 @@
 * [Quick](https://github.com/JCode1986/python-data-structures-and-algorithms/tree/master/sorts/quick_sort)
 
 ## Tests
+* pipenv shell
 * In CLI, type `pytest <test-module.py>`
