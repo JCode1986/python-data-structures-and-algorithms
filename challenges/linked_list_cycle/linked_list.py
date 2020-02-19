@@ -27,7 +27,7 @@ class Linked_list:
 
     def to_string(self):
         """returns a string representing all the values in the Linked List."""
-        values = " "
+        values = ""
         current = self.head
         while current:
             values += f'{[(current.value)]}-->'
@@ -36,6 +36,10 @@ class Linked_list:
 
     def append(self, value):
         node = Node(value)
+
+        if not self.head:
+            self.head = node
+
         current = self.head
         while current:
             if current.next == None:
@@ -101,12 +105,12 @@ if __name__ == "__main__":
     lst1 = Linked_list()
     lst2 = Linked_list()
     lst3 = Linked_list()
-    lst1.insert(1)
-    lst1.append(2)
-    lst1.append(3)
-    lst1.append(2)
-    lst1.append(1)
-    lst2.insert(2)
+    # lst1.insert(1)
+    # lst1.append(2)
+    # lst1.append(3)
+    # lst1.append(2)
+    # lst1.append(1)
+    # lst2.insert(2)
     lst2.append(4)
     lst2.append(6)
     lst2.append(8)
