@@ -38,9 +38,10 @@ class Linked_list:
         node = Node(value)
 
         if not self.head:
-            self.head = node
+            self.insert(node)
 
         current = self.head
+
         while current:
             if current.next == None:
                 current.next = node
