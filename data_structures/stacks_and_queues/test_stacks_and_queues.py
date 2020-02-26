@@ -10,6 +10,10 @@ def queue():
     return Queue()
 
 
+#################
+#     Stack     #
+#################
+
 def test_instantiate_empty_stack(stack):
     """Can successfully instantiate an empty stack"""
     assert stack
@@ -25,8 +29,8 @@ def test_multiple_values_to_stack(stack):
     """Can successfully push multiple values onto a stack"""
     stack.push(2)
     stack.push(3)
-    expected = 2
-    actual = stack.top.next.value
+    expected = 3
+    actual = stack.top.value
     assert actual == expected
 
 def test_pop_stack(stack):
@@ -41,6 +45,14 @@ def test_pop_stack_empty(stack):
     expected = 'Stack is empty'
     assert actual == expected
 
+def test_if_stack_is_empty_boolean(stack):
+    """Returns boolean is stack is empty"""
+    empty_stack = Stack()
+    stack.push('mouse')
+    actual = [empty_stack.is_empty(), stack.is_empty()]
+    expected = [True, False]
+    assert actual == expected
+
 def test_empty_stack_after_multiple_pops(stack):
     """Can successfully empty a stack after multiple pops"""
     actual = stack.is_empty()
@@ -48,7 +60,7 @@ def test_empty_stack_after_multiple_pops(stack):
     assert actual == expected
 
 def test_peek_stack(stack):
-    """Can successfully peek the next item on the stack"""
+    """Can successfully peek the top of the stack"""
     stack.push(6)
     stack.push(9)
     expected = 9
@@ -61,6 +73,29 @@ def test_peek_stack_empty(stack):
     expected = 'Stack is empty'
     assert actual == expected
 
+def test_stack_size_if_empty(stack):
+    "Returns string message if stack is empty when checking for size"
+    actual = stack.stack_size()
+    expected = 'Nothing in Stack'
+    assert actual == expected
+
+def test_returns_stack_size(stack):
+    """Can successfully returns stacks size"""
+    nums = [1, 2, 3, 4, 5, 6, 7, 8]
+    for num in nums:
+        stack.push(num)
+    actual = stack.stack_size()
+    expect = 8
+    assert expect == actual
+
+
+#################
+#     Queue     #
+#################
+
+def test_instantiate_queue(queue):
+    """Can successfully instantiate an empty queue"""
+    assert queue
 
 def test_enqueue_to_queue(queue):
     """Can successfully enqueue into a queue"""
@@ -104,35 +139,27 @@ def test_queue_empty_peek(queue):
     expected = 'Queue is empty'
     assert actual == expected
 
+def test_if_queue_is_empty_boolean(queue):
+    empty_queue = Queue()
+    queue.enqueue('bag')
+    actual = [empty_queue.is_empty(), queue.is_empty()] 
+    expected = [True, False]
+    assert actual == expected
+
 def test_empty_queue_after_dequeue(queue):
     """Can successfully empty a queue after multiple dequeues"""
     nums = [1, 2, 3, 4, 5, 6, 7, 8]
     for num in nums:
         queue.enqueue(num)
-
     for _ in nums:
         queue.dequeue()
-
     assert queue.is_empty() == True
 
-def test_instantiate_queue(queue):
-    """Can successfully instantiate an empty queue"""
-    assert queue
-
-def test_returns_stack_size(stack):
-    """Can successfully returns stacks size"""
-    nums = [1, 2, 3, 4, 5, 6, 7, 8]
-    for num in nums:
-        stack.push(num)
-    actual = stack.stack_size()
-    expect = 8
-    assert expect == actual
-
-def test_returns_queue_size(stack):
+def test_returns_queue_size(queue):
     """Can successfully returns queue size"""
     nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
     for num in nums:
-        stack.push(num)
-    actual = stack.stack_size()
+        queue.enqueue(num)
+    actual = queue.queue_size()
     expect = 13
     assert expect == actual

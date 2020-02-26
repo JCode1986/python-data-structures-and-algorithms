@@ -39,6 +39,8 @@ class Stack(Node):
         return f'Stack size: {self.stack_size()} with Values:{values}None'
 
     def stack_size(self):
+        if not self.top:
+            return 'Nothing in Stack'
         return self.size
 
     def is_empty(self):
