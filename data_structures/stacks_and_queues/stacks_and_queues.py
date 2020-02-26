@@ -26,7 +26,7 @@ class Stack(Node):
     def peek(self):
         """returns the value of the node located on top of the stack, without removing it from the stack"""
         if not self.top:
-            return 'There is nothing in Stack'
+            return 'Stack is empty'
         else:
             return self.top.value
 

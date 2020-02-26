@@ -9,6 +9,11 @@ def stack():
 def queue():
     return Queue()
 
+
+def test_instantiate_empty_stack(stack):
+    """Can successfully instantiate an empty stack"""
+    assert stack
+
 def test_push_to_stack(stack):
     """Can successfully push onto a stack"""
     stack.push(4)
@@ -30,11 +35,14 @@ def test_pop_stack(stack):
     expected = 1
     assert stack.pop() == expected
 
+def test_pop_stack_empty(stack):
+    """Returns string message if there is nothing to pop in stack"""
+    actual = stack.pop()
+    expected = 'Stack is empty'
+    assert actual == expected
+
 def test_empty_stack_after_multiple_pops(stack):
     """Can successfully empty a stack after multiple pops"""
-    stack.pop()
-    stack.pop()
-    stack.pop()
     actual = stack.is_empty()
     expected = True
     assert actual == expected
@@ -47,9 +55,12 @@ def test_peek_stack(stack):
     actual = stack.peek()
     assert actual == expected
 
-def test_instantiate_empty_stack(stack):
-    """Can successfully instantiate an empty stack"""
-    assert stack
+def test_peek_stack_empty(stack):
+    "Returns string message if stack is empty"
+    actual = stack.peek()
+    expected = 'Stack is empty'
+    assert actual == expected
+
 
 def test_enqueue_to_queue(queue):
     """Can successfully enqueue into a queue"""
@@ -74,12 +85,24 @@ def test_dequeue_test(queue):
     expected = 1
     assert queue.dequeue() == expected
 
+def test_dequeue_empty_queue(queue):
+    """Returns string message if queue is empty when dequeueing"""
+    actual = queue.dequeue()
+    expected = 'Queue is empty'
+    assert actual == expected
+
 def test_queue_peek(queue):
     """Can successfully peek into a queue, seeing the expected value"""
     queue.enqueue(1)
     queue.enqueue(2)
     queue.enqueue(3)
     assert queue.peek() == 1
+
+def test_queue_empty_peek(queue):
+    """Returns string message if queue is empty when peeking"""
+    actual = queue.peek()
+    expected = 'Queue is empty'
+    assert actual == expected
 
 def test_empty_queue_after_dequeue(queue):
     """Can successfully empty a queue after multiple dequeues"""
