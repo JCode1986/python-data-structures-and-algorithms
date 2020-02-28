@@ -36,12 +36,11 @@ class Linked_list:
 
     def append(self, value):
         node = Node(value)
-
         if not self.head:
-            self.insert(node)
+            self.head = node
+            return
 
         current = self.head
-
         while current:
             if current.next == None:
                 current.next = node
@@ -106,12 +105,12 @@ if __name__ == "__main__":
     lst1 = Linked_list()
     lst2 = Linked_list()
     lst3 = Linked_list()
-    # lst1.insert(1)
-    # lst1.append(2)
-    # lst1.append(3)
-    # lst1.append(2)
-    # lst1.append(1)
-    # lst2.insert(2)
+    lst1.insert(1)
+    lst1.append(2)
+    lst1.append(3)
+    lst1.append(2)
+    lst1.append(1)
+    lst2.insert(2)
     lst2.append(4)
     lst2.append(6)
     lst2.append(8)
@@ -123,7 +122,7 @@ if __name__ == "__main__":
     # lst.merge_lists(lst1, lst2)
     # print(lst3.to_string())
     print(lst2.to_string())
-    print(lst.is_palindrome(lst2))
+    # print(lst.is_palindrome(lst2))
     # print(lst.to_string())
     # lst.insert_after(2, 420)
     # lst.insert_before(69, 30)

@@ -27,7 +27,7 @@ class Linked_list:
 
     def to_string(self):
         """returns a string representing all the values in the Linked List."""
-        values = " "
+        values = ""
         current = self.head
         while current:
             values += f'{[(current.value)]}-->'
@@ -36,6 +36,10 @@ class Linked_list:
 
     def append(self, value):
         node = Node(value)
+        if not self.head:
+            self.head = node
+            return
+
         current = self.head
         while current:
             if current.next == None:
@@ -118,7 +122,7 @@ if __name__ == "__main__":
     # lst.merge_lists(lst1, lst2)
     # print(lst3.to_string())
     print(lst2.to_string())
-    print(lst.is_palindrome(lst2))
+    # print(lst.is_palindrome(lst2))
     # print(lst.to_string())
     # lst.insert_after(2, 420)
     # lst.insert_before(69, 30)
