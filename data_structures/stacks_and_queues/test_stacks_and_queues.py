@@ -73,12 +73,6 @@ def test_peek_stack_empty(stack):
     expected = 'Stack is empty'
     assert actual == expected
 
-def test_stack_size_if_empty(stack):
-    "Returns string message if stack is empty when checking for size"
-    actual = stack.stack_size()
-    expected = 'Nothing in Stack'
-    assert actual == expected
-
 def test_returns_stack_size(stack):
     """Can successfully returns stacks size"""
     nums = [1, 2, 3, 4, 5, 6, 7, 8]
